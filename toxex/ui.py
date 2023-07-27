@@ -7,15 +7,15 @@ class UI:
 
     def show_welcome(self):
         print("=====Welcome to MadLibz=====")
-        print("=====Complete the sentences using=====")
+        print("=====Complete the sentences using=====\n")
         for idx, title in enumerate(self.generator.titles):
             print(f"{idx}.\t{title}")
 
     def prompt_completion(self, index: int) -> List[str]:
-        question = self.generator.content[index]
+        question = self.generator.items[index]
         answers: List[str] = []
         print("Please provide the following:")
-        for blank in question.get("blanks"):
+        for blank in question.blanks:
             ans = input(f"\t{blank} => ")
             answers.append(ans)
         return answers
